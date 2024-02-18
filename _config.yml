@@ -104,7 +104,9 @@ theme: edinburgh
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/max-titov.github.io
+  branch: gh-pages
 
 # Configuration for hexo-image-sizes
 image_sizes:
