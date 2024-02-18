@@ -40,7 +40,10 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -103,10 +106,26 @@ theme: edinburgh
 deploy:
   type: ''
 
+# Configuration for hexo-image-sizes
+image_sizes:
+  pattern: !!js/regexp /\.(gif|jpg|jpeg|png)$/i
+  profiles:
+    body:
+      width: 700 # height will adjust to preserve aspect ratio
+    thumbnail:
+      width: 100 # Image will be cropped to a square
+      height: 100
+    huge:
+      height: 1000
+      allowEnlargement: true
+  defaultProfile: body
+  link: true
+  useAltForTitle: true
+
 # Header
 menu:
   About: /about
-  Contact: /contact
-  Instagram: https://www.instagram.com
+  Projects: /projects
+  Experience: /experience
+  Photography: /photography
   LinkedIn: https://www.linkedin.com
-  Facebook: https://www.facebook.com
