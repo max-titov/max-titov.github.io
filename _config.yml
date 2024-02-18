@@ -106,7 +106,7 @@ theme: edinburgh
 deploy:
   type: git
   repo: git@github.com:max-titov/max-titov.github.io.git
-  branch: gh-pages
+  branch: main
 
 # Configuration for hexo-image-sizes
 image_sizes:

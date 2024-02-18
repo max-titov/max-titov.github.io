@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  # default branch
+      - development
+      - gh-pages
 
 jobs:
   build:
