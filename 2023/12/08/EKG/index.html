@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>Electrocardiogram - Max Titov</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Electrocardiogram ProjectECE Fundamentals III (ECE3750) Final ProjectMade by Max Titov, Quentin Olsen, and Bhargav Moosani
+Project OverviewThe goal of">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="Max Titov">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/styles.css">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">Max Titov</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/projects">Projects</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/experience">Experience</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/photography">Photography</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" rel="noopener" href="https://www.linkedin.com">LinkedIn</a>
+        </li>
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/2023/12/08/EKG/board.png" alt="Electrocardiogram">
+</div>
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>Electrocardiogram</h1>
+</div> -->
+
+<div class="row">
+  <div class="col-0 col-sm-1 col-md-2 col-lg-3"></div>
+  <div class="col-12 col-sm-10 col-md-8 col-lg-6"><h1 id="Electrocardiogram-Project"><a href="#Electrocardiogram-Project" class="headerlink" title="Electrocardiogram Project"></a>Electrocardiogram Project</h1><p><strong>ECE Fundamentals III (ECE3750) Final Project</strong><br><strong>Made by Max Titov, Quentin Olsen, and Bhargav Moosani</strong></p>
+<p><strong>Project Overview</strong><br>The goal of the project was to create a functional electrocardiogram (EKG). We designed five electrical subsystems, with each team member taking on specific responsibilities. An example of a recorded pulse can be seen below:  </p>
+<img src="/2023/12/08/EKG/filtered-output.png" class="post-image">
+
+<p><br/>The electrical pulses from a subject’s wrist were processed through an in-amp and integrator system, followed by a filter to remove high frequencies. The filtered signal then passed through an isolator for protection against electrical failures, and finally underwent digital signal processing for a clean output. The signal path can be seen in the diagram below.  </p>
+<img src="/2023/12/08/EKG/diagram.png" class="post-image">
+
+<p><br/>There were five electrical subsystems: power supply, instrumentation amplifier, anti-alias filter, and the isolator. They are described in detail below.  </p>
+<p><strong>Instrumentation Amplifier</strong></p>
+<p>The point of the power supply is to set VCC, for which most integrated circuits on the board will use, to 3.3V. This is implemented with two different sources. The first is done by stepping down a 9V voltage from an auxiliary battery, using a voltage regulator (U6). The second from the Analog Discovery 2’s DC voltage supply. This directly puts out 3.3V and allows isolated system tests.</p>
+<img src="/2023/12/08/EKG/in-amp.png" class="post-image">
+<p><br/><br/></p>
+<p><strong>Anti-alias Filter</strong></p>
+<p>The anti-aliasing filter seen below is a 4th order Butterworth filter, which is used to attenuate high frequency signals and prevent as much rippling as possible in the pass-band. The filter is made up of two cascaded 2nd order low-pass filters. Since our filter’s total response is 4th order low-pass, we’ll have a -80dB&#x2F;dec roll-off in our frequency response at the corner frequency.</p>
+<img src="/2023/12/08/EKG/filter.png" class="post-image">
+
+<img src="/2023/12/08/EKG/setup.png" class="post-image">
+
+
+<img src="/2023/12/08/EKG/output.png" class="post-image">
+
+
+
+</div>
+  <div class="col-0 col-sm-1 col-md-2 col-lg-3"></div>
+</div>
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>
