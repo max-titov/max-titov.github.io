@@ -38,11 +38,6 @@ input:focus, textarea:focus {
   outline: none;
 }
 
-.post-image {
-	width: 100%;
-    height: auto;   
-}
-
 .portfolio-content {
 	line-height: 2;
 	color: #555;
@@ -79,7 +74,7 @@ h1, h2, h3 {
 
 .nav-item {
 	font-size: 0.8rem;
-	font-weight: 600;
+	font-weight: 300;
 	letter-spacing: 1.5px;
 }
 
@@ -93,8 +88,7 @@ h1, h2, h3 {
 
 .portfolio-img {
 	width: 100%;
-	max-height: 500px;
-	max-width: 300px;
+	max-height: 300px;
 	display: block;
 	object-fit: cover;
 }
@@ -126,7 +120,7 @@ h1, h2, h3 {
 }
 
 .hovereffect .overlay-text {
-	font-size: 1.8rem;
+	font-size: 1.3rem;
 	font-family: 'Crimson Text', sans-serif;
 	font-weight: 300;
 	color: #000;
@@ -161,8 +155,8 @@ h1, h2, h3 {
 }
 
 .hovereffect:hover img {
-  opacity: .4;
-  filter: alpha(opacity=.4);
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 .page-nav {
 	width: 50%;
@@ -175,4 +169,8 @@ h1, h2, h3 {
 	font-weight: 300;
 	margin: 0 10px;
 	color: #000;
+}
+
+.post-image{
+	width: 100%
 }
