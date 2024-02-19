@@ -127,7 +127,7 @@ image_sizes:
 # Header
 menu:
   About: /about
-  Projects: /projects
+  Projects: /projects/
   Experience: /experience
   Photography: /photography
   LinkedIn: https://www.linkedin.com
