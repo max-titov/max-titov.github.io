@@ -36,7 +36,6 @@ The anti-aliasing filter seen below is a 4th order Butterworth filter, which is 
 {% asset_img post-image 'filter.png' %}
 
 
-setup
 
 {% asset_img post-image 'setup.png' %}
 
