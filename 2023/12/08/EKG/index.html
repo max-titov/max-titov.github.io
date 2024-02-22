@@ -61,7 +61,7 @@ Project OverviewThe goal of">
         </li>
       
         <li class="nav-item">
-          <a class="nav-link" href="/test">Projects</a>
+          <a class="nav-link" href="/projects">Projects</a>
         </li>
       
         <li class="nav-item">
@@ -70,10 +70,6 @@ Project OverviewThe goal of">
       
         <li class="nav-item">
           <a class="nav-link" href="/photography">Photography</a>
-        </li>
-      
-        <li class="nav-item">
-          <a class="nav-link" target="_blank" rel="noopener" href="https://www.linkedin.com">LinkedIn</a>
         </li>
       
     </ul>
@@ -94,28 +90,42 @@ Project OverviewThe goal of">
   <div class="col-1 col-sm-1 col-md-2 col-lg-3 ml-1">
   </div>
   <div class="col-10 col-sm-10 col-md-8 col-lg-6">
-    <h1 id="Electrocardiogram-Project"><a href="#Electrocardiogram-Project" class="headerlink" title="Electrocardiogram Project"></a>Electrocardiogram Project</h1><p><strong>ECE Fundamentals III (ECE3750) Final Project</strong><br><strong>Made by Max Titov, Quentin Olsen, and Bhargav Moosani</strong></p>
+    <h1 id="Electrocardiogram-Project"><a href="#Electrocardiogram-Project" class="headerlink" title="Electrocardiogram Project"></a>Electrocardiogram Project</h1><p><em>ECE Fundamentals III (ECE3750) Final Project</em><br><em>Made by Max Titov, Quentin Olsen, and Bhargav Moosani</em></p>
 <p><strong>Project Overview</strong><br>The goal of the project was to create a functional electrocardiogram (EKG). We designed five electrical subsystems, with each team member taking on specific responsibilities. An example of a recorded pulse can be seen below:  </p>
 <img src="/2023/12/08/EKG/filtered-output.png" class="post-image">
 
 <p><br/>The electrical pulses from a subject’s wrist were processed through an in-amp and integrator system, followed by a filter to remove high frequencies. The filtered signal then passed through an isolator for protection against electrical failures, and finally underwent digital signal processing for a clean output. The signal path can be seen in the diagram below.  </p>
 <img src="/2023/12/08/EKG/diagram.png" class="post-image">
 
-<p><br/>There were five electrical subsystems: power supply, instrumentation amplifier, anti-alias filter, and the isolator. They are described in detail below.  </p>
-<p><strong>Instrumentation Amplifier</strong></p>
+<p><br/>There were five electrical subsystems: power supply, instrumentation amplifier, anti-alias filter, and the isolator. They are described in detail below.  <br/><br/></p>
+<p><strong>Power Supply</strong></p>
 <p>The point of the power supply is to set VCC, for which most integrated circuits on the board will use, to 3.3V. This is implemented with two different sources. The first is done by stepping down a 9V voltage from an auxiliary battery, using a voltage regulator (U6). The second from the Analog Discovery 2’s DC voltage supply. This directly puts out 3.3V and allows isolated system tests.</p>
+<img src="/2023/12/08/EKG/power.png" class="post-image">
+<p><br/><br/></p>
+<p><strong>Instrumentation Amplifier</strong></p>
+<p>The first step of the signal processing from the raw input is the In-Amp. EKG signals can be easily contaminated by various types of noise, including electromagnetic interference and movement artifacts. In-Amps are designed to reject common-mode noise, which is noise that appears identically on both signal inputs. The difference between the two inputs then gets amplified to a more usuable range.</p>
 <img src="/2023/12/08/EKG/in-amp.png" class="post-image">
 <p><br/><br/></p>
 <p><strong>Anti-alias Filter</strong></p>
 <p>The anti-aliasing filter seen below is a 4th order Butterworth filter, which is used to attenuate high frequency signals and prevent as much rippling as possible in the pass-band. The filter is made up of two cascaded 2nd order low-pass filters. Since our filter’s total response is 4th order low-pass, we’ll have a -80dB&#x2F;dec roll-off in our frequency response at the corner frequency.</p>
 <img src="/2023/12/08/EKG/filter.png" class="post-image">
-
-
-
+<p><br/><br/></p>
+<p><strong>Isolator</strong></p>
+<p>The isolator is used to protect the device and patient in case of device failure. It separates the AD2 and battery  power sources while keeping the signal at the same voltage.</p>
+<img src="/2023/12/08/EKG/isolator.png" class="post-image">
+<p><br/><br/></p>
+<p><strong>Setup</strong></p>
+<p>The setup consisted of connecting three probes: one on each wrist and a ground connection to the ankle. A picture of the setup can be seen below.</p>
 <img src="/2023/12/08/EKG/setup.png" class="post-image">
-
-
+<p><br/><br/></p>
+<p><strong>Results</strong></p>
+<p>With the setup shown above, we recording the following EKG signal on Waveforms software.</p>
 <img src="/2023/12/08/EKG/output.png" class="post-image">
+
+<p><br/>There was a lot of noise in the signal caused by interference caused by ambient electromagnetic waves from nearby electronics operating at 60Hz. To clean the data from this noise, so we applied a finite impulse response (FIR) filter to the data. The results are shown below.</p>
+<img src="/2023/12/08/EKG/filtered-output.png" class="post-image">
+
+<a href="/2023/12/08/EKG/ECE3750-Project-Report-Phased%20and%20Confused.pdf" title="Final Report">Final Report</a>
 
 
 
