@@ -130,4 +130,7 @@ menu:
   Projects: /projects
   Experience: /experience
   Photography: /photography
-  LinkedIn: https://www.linkedin.com
+
+hexo_tag_optimized_gif:
+  enable_poster: true
+  video_css_class: post-image
